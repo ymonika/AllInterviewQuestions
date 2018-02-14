@@ -472,3 +472,9 @@ This section collects some weird questions along the lines of the [Manhole Cover
 * I want to refactor a legacy system. You want to rewrite it from scratch. Argument. Then, switch our roles.
 * Your boss asks you to lie to the Company. What's your reaction?
 * If you could travel back in time, which advice would you give to your younger self?
+
+memoey Leaks:
+https://stackify.com/memory-leaks-java/
+
+Spring AOP:
+https://www.intertech.com/Blog/secrets-of-the-spring-aop-proxy/

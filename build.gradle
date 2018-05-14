@@ -1,0 +1,17 @@
+group 'AllInterviewQuestions'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+jar {
+    baseName = 'sortingalgorithms'
+    version = '0.1.0'
+}

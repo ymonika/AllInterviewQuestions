@@ -1,3 +1,3 @@
 rootProject.name='AllInterviewQuestions'
 
-include 'Threading', 'SimpleProgramming', 'HackerRank', 'ParkingLotExample','VuClip-ApiVersionExample' , 'SalesTaxExample'
+include 'Threading', 'SimpleProgramming', 'HackerRank', 'ParkingLotExample','VuClip-ApiVersionExample' , 'SalesTaxExample', 'SpringModuleExamples'

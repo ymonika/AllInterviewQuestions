@@ -18,22 +18,4 @@ public class InsertDataMap {
         return colData.toString().replace("[", "").replaceAll("]", "");
     }
 
-    class OneColAndData {
-
-        private String keyData;
-        private String keyValue;
-
-        OneColAndData(String keyData, String keyValue) {
-            this.keyData = "\"" + keyData + "\"";
-            this.keyValue = "\"" + keyValue + "\"";
-        }
-
-        @Override
-        public String toString() {
-            return keyData + ":" + keyValue;
-        }
-
-    }
-
-
 }

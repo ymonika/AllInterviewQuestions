@@ -1,6 +1,6 @@
 package com.mongo.converter;
 
-import com.mongo.mongo.query.InsertDataMap;
+import com.mongo.mongo.query.ListOfColumnData;
 import com.mongo.mongo.query.InsertMongoQuery;
 import com.mongo.mongo.query.MongoQuery;
 import com.mongo.sql.query.InsertSqlQuery;
@@ -16,21 +16,21 @@ public class InsertQueryConverter implements QueryConverter<InsertSqlQuery> {
         InsertMongoQuery insertMongoQuery = new InsertMongoQuery();
 
         insertMongoQuery.setTableName(insertSqlQuery.getTableName());
-        insertMongoQuery.setInsertData(getInsertDataMap(insertSqlQuery.getColumnNames(), insertSqlQuery.getColumnValues()));
+        insertMongoQuery.setListOfColumnDatas(getInsertDataMap(insertSqlQuery.getColumnNames(), insertSqlQuery.getColumnValues()));
 
         return insertMongoQuery;
     }
 
-    private List<InsertDataMap> getInsertDataMap(List<String> columnValues, List<List<String>> list) {
-        List<InsertDataMap> insertDataMaps = new ArrayList<>();
+    private List<ListOfColumnData> getInsertDataMap(List<String> columnValues, List<List<String>> list) {
+        List<ListOfColumnData> listOfColumnDatas = new ArrayList<>();
 
         for (List<String> columnDataValues : list) {
             if (columnValues.size() == columnDataValues.size()) {
-                insertDataMaps.add(new InsertDataMap(columnValues, columnDataValues));
+                listOfColumnDatas.add(new ListOfColumnData(columnValues, columnDataValues));
             } else {
                 throw new RuntimeException("Data Column & Values are mismatched.");
             }
         }
-        return insertDataMaps;
+        return listOfColumnDatas;
     }
 }

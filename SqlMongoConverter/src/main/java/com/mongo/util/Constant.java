@@ -9,4 +9,5 @@ public interface Constant {
     String DELETE = "DELETE";
     String FROM = "FROM";
     String WHERE = "WHERE";
+    String AND = "AND";
 }

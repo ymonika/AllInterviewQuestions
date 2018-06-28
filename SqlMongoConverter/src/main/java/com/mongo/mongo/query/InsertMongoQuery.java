@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 public class InsertMongoQuery implements MongoQuery {
 
     private String tableName;
-    private List<InsertDataMap> insertData;
+    private List<ListOfColumnData> listOfColumnDatas;
 
     public InsertMongoQuery() {
     }
@@ -19,23 +19,23 @@ public class InsertMongoQuery implements MongoQuery {
         this.tableName = tableName;
     }
 
-    public List<InsertDataMap> getInsertData() {
-        return insertData;
+    public List<ListOfColumnData> getListOfColumnDatas() {
+        return listOfColumnDatas;
     }
 
-    public void setInsertData(List<InsertDataMap> insertData) {
-        this.insertData = insertData;
+    public void setListOfColumnDatas(List<ListOfColumnData> listOfColumnDatas) {
+        this.listOfColumnDatas = listOfColumnDatas;
     }
 
     @Override
     public String toString() {
         String data = "";
-        if (this.insertData.size() == 1) {
-            data = "insertOne({" + insertData.get(0) + "})";
+        if (this.listOfColumnDatas.size() == 1) {
+            data = "insertOne({" + listOfColumnDatas.get(0) + "})";
         } else {
             StringJoiner stringJoiner = new StringJoiner(",");
-            for (InsertDataMap insertDataMap : insertData) {
-                stringJoiner.add("{" + insertDataMap + "}");
+            for (ListOfColumnData listOfColumnData : listOfColumnDatas) {
+                stringJoiner.add("{" + listOfColumnData + "}");
                 data = "insertMany([" + stringJoiner + "])";
             }
         }

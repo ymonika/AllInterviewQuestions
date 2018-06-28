@@ -9,31 +9,52 @@ import java.util.stream.Collectors;
 
 public class SelectSqlQuery extends SqlQuery {
 
-    private List<String> selectClause;
+    private List<String> selectClause = new ArrayList<>();
+    private List<String> whereClauseColumnNames = new ArrayList<>();
+    private List<String> whereClauseColumnValues = new ArrayList<>();
+
 
     public SelectSqlQuery(String sqlQ) {
-        int selectIndex = sqlQ.indexOf("SELECT") + 6 ;
-        int fromIndex = sqlQ.indexOf("FROM") ;
-        this.selectClause = getListForSelect(sqlQ.substring(selectIndex, fromIndex).trim());
-        this.setTableName(sqlQ.substring(fromIndex + 4, sqlQ.length() ).trim());
+        int selectIndex = sqlQ.indexOf("SELECT") + 6;
+        int fromIndex = sqlQ.indexOf("FROM");
+        int whereIndexOrLastIndex = sqlQ.contains(Constant.WHERE) ? sqlQ.indexOf(Constant.WHERE): sqlQ.length();
+        this.setTableName(sqlQ.substring(fromIndex + 4, whereIndexOrLastIndex).trim());
+        setListForSelect(sqlQ.substring(selectIndex, fromIndex).trim());
+        if (sqlQ.contains(Constant.WHERE)) {
+            setWhereClauseColumnAndValues(sqlQ.substring(whereIndexOrLastIndex));
+        }
     }
 
     public List<String> getSelectClause() {
         return selectClause;
     }
 
-    public void setSelectClause(List<String> selectClause) {
-        this.selectClause = selectClause;
+    public List<String> getWhereClauseColumnNames() {
+        return whereClauseColumnNames;
     }
 
-    private List<String> getListForSelect(String columnsOrAll){
-        List<String> columns = new ArrayList<>();
-        if(columnsOrAll.equals(Constant.STAR)) {
-            return columns;
+    public List<String> getWhereClauseColumnValues() {
+        return whereClauseColumnValues;
+    }
+
+    private void setListForSelect(String columnsOrAll) {
+        if (columnsOrAll.equals(Constant.STAR)) {
+            return;
         } else {
-            columns.addAll(Arrays.stream(columnsOrAll.split(",")).map(column -> column.trim()).collect(Collectors.toList()));
+            this.selectClause.addAll(Arrays.stream(columnsOrAll.split(",")).map(column -> column.trim()).collect(Collectors.toList()));
         }
-        return columns;
+    }
+
+    public void setWhereClauseColumnAndValues(String deleteQuery) {
+        String[] whereClauseData = deleteQuery.replace(Constant.WHERE, "")
+                .trim().split(Constant.AND);
+        for (String pairOfkeyData : whereClauseData) {
+            List<String> keyData = Arrays.stream(pairOfkeyData.split("=")).map(value -> value.trim()).collect(Collectors.toList());
+            if (keyData.size() == 2) {
+                whereClauseColumnNames.add(keyData.get(0));
+                whereClauseColumnValues.add(keyData.get(1));
+            }
+        }
     }
 
     @Override

@@ -3,11 +3,11 @@ package com.mongo.mongo.query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsertDataMap {
+public class ListOfColumnData {
 
     List<OneColAndData> colData = new ArrayList<>();
 
-    public InsertDataMap(List<String> col, List<String> val) {
+    public ListOfColumnData(List<String> col, List<String> val) {
         for (int i = 0; i < col.size(); i++) {
             this.colData.add(new OneColAndData(col.get(i), val.get(i)));
         }

@@ -33,7 +33,6 @@ public class DeleteSqlQuery extends SqlQuery {
                 columnValues.add(keyData.get(1));
             }
         }
-
     }
 
     public List<String> getColumnNames() {

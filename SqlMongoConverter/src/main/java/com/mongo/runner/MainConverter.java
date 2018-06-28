@@ -3,7 +3,6 @@ package com.mongo.runner;
 import com.mongo.converter.DeleteQueryConverter;
 import com.mongo.converter.InsertQueryConverter;
 import com.mongo.converter.SelectQueryConverter;
-import com.mongo.mongo.query.InsertMongoQuery;
 import com.mongo.sql.query.DeleteSqlQuery;
 import com.mongo.sql.query.InsertSqlQuery;
 import com.mongo.sql.query.SelectSqlQuery;
@@ -15,11 +14,17 @@ public class MainConverter {
 
         String sqlQ1 = "SELECT * FROM identityActions";
         String sqlQ2 = "SELECT lastLoginTimestampUtc, uid, lastAccessedTimestampUtc FROM identityActions";
+        String sqlQ3 = "SELECT * FROM identityActions WHERE uid=122323";
+        String sqlQ4 = "SELECT * FROM identityActions WHERE uid=122323 AND email=abc@abc";
+        String sqlQ5 = "SELECT lastLoginTimestampUtc, uid FROM identityActions WHERE uid=122323 AND email=abc@abc";
 
         SelectQueryConverter selectQueryConverter = new SelectQueryConverter();
 
         System.out.println(selectQueryConverter.getMongoQuery(new SelectSqlQuery(sqlQ1)));
         System.out.println(selectQueryConverter.getMongoQuery(new SelectSqlQuery(sqlQ2)));
+        System.out.println(selectQueryConverter.getMongoQuery(new SelectSqlQuery(sqlQ3)));
+        System.out.println(selectQueryConverter.getMongoQuery(new SelectSqlQuery(sqlQ4)));
+        System.out.println(selectQueryConverter.getMongoQuery(new SelectSqlQuery(sqlQ5)));
 
         System.out.println("______________________________________________");
 

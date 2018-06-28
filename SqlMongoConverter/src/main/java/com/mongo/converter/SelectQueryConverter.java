@@ -1,32 +1,35 @@
 package com.mongo.converter;
 
 import com.mongo.mongo.query.FindMongoQuery;
+import com.mongo.mongo.query.OneColAndData;
 import com.mongo.sql.query.SelectSqlQuery;
 import com.mongo.util.Constant;
+import com.mongo.util.CustomStringUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class SelectQueryConverter implements QueryConverter<SelectSqlQuery> {
 
-    static String COL_CONSTANT = "\"XYZ\" : 1";
 
     public FindMongoQuery getMongoQuery(SelectSqlQuery selectSqlQuery) {
-        StringJoiner stringJoinerOuter = new StringJoiner(",");
-        stringJoinerOuter.add(Constant.CURLY_);
 
-        StringJoiner colClause = new StringJoiner(",");
-        for (String column : selectSqlQuery.getSelectClause()) {
-            if (column.length() > 0) {
-                colClause.add(COL_CONSTANT.replace("XYZ", column.trim()));
-            }
-        }
-        if(colClause.length() != 0 ) {
-         stringJoinerOuter.add("{" + colClause + "}");
-        }
         FindMongoQuery findMongoQuery = new FindMongoQuery();
         findMongoQuery.setTableName(selectSqlQuery.getTableName());
-        findMongoQuery.setSelectClause(stringJoinerOuter.toString());
-
+        findMongoQuery.setSelectClause(setOneColAndData(selectSqlQuery.getSelectClause()));
+        findMongoQuery.setWhereClause(CustomStringUtil.getListOfPairValues(selectSqlQuery.getWhereClauseColumnNames(),
+                selectSqlQuery.getWhereClauseColumnValues()));
         return findMongoQuery;
     }
+
+    private List<OneColAndData> setOneColAndData(List<String> columnValues) {
+        List<OneColAndData> oneColAndDatas = new ArrayList<>();
+
+            for(int i=0;i<columnValues.size();i++) {
+                oneColAndDatas.add(new OneColAndData(columnValues.get(i), "1"));
+        }
+        return oneColAndDatas;
+    }
+
 }

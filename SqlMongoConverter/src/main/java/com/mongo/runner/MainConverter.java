@@ -1,5 +1,6 @@
 package com.mongo.runner;
 
+import com.mongo.converter.InsertQueryConverter;
 import com.mongo.converter.SelectQueryConverter;
 import com.mongo.mongo.query.InsertMongoQuery;
 import com.mongo.sql.query.InsertSqlQuery;
@@ -24,8 +25,10 @@ public class MainConverter {
 
         InsertSqlQuery insertSqlQuery1 = new InsertSqlQuery(i1);
         InsertSqlQuery insertSqlQuery2 = new InsertSqlQuery(i2);
-        System.out.println(new InsertMongoQuery(insertSqlQuery1));
-        System.out.println(new InsertMongoQuery(insertSqlQuery2));
+        InsertQueryConverter insertQueryConverter = new InsertQueryConverter();
+
+        System.out.println(insertQueryConverter.getMongoQuery(insertSqlQuery1));
+        System.out.println(insertQueryConverter.getMongoQuery(insertSqlQuery2));
 
     }
 }

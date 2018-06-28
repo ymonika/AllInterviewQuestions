@@ -1,33 +1,30 @@
 package com.mongo.mongo.query;
 
-import com.mongo.sql.query.InsertSqlQuery;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class InsertMongoQuery {
+public class InsertMongoQuery implements MongoQuery {
 
     private String tableName;
     private List<InsertDataMap> insertData;
 
-    public InsertMongoQuery(InsertSqlQuery insertSqlQuery) {
-
-        this.tableName = insertSqlQuery.getTableName();
-        this.insertData = getInsertDataMap(insertSqlQuery.getColumnNames(), insertSqlQuery.getColumnValues());
+    public InsertMongoQuery() {
     }
 
-    private List<InsertDataMap> getInsertDataMap(List<String> columnValues, List<List<String>> list) {
-        List<InsertDataMap> insertDataMaps = new ArrayList<>();
+    public String getTableName() {
+        return tableName;
+    }
 
-        for (List<String> columnDataValues : list) {
-            if (columnValues.size() == columnDataValues.size()) {
-                insertDataMaps.add(new InsertDataMap(columnValues, columnDataValues));
-            } else {
-                throw new RuntimeException("Data Column & Values are mismatched.");
-            }
-        }
-        return insertDataMaps;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public List<InsertDataMap> getInsertData() {
+        return insertData;
+    }
+
+    public void setInsertData(List<InsertDataMap> insertData) {
+        this.insertData = insertData;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.mongo.converter;
 
-import com.mongo.mongo.query.FindMongoQuery;
+import com.mongo.mongo.query.MongoQuery;
 
 public interface QueryConverter<T> {
 
-    FindMongoQuery getMongoQuery(T t);
+    MongoQuery getMongoQuery(T t);
 }

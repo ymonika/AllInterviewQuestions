@@ -1,6 +1,6 @@
 package com.mongo.mongo.query;
 
-public class FindMongoQuery {
+public class FindMongoQuery implements MongoQuery {
 
     private String selectClause;
     private String tableName;

@@ -1,12 +1,8 @@
 package com.mongo.converter;
 
 import com.mongo.mongo.query.DeleteMongoQuery;
-import com.mongo.mongo.query.OneColAndData;
 import com.mongo.sql.query.DeleteSqlQuery;
 import com.mongo.util.CustomStringUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DeleteQueryConverter implements QueryConverter<DeleteSqlQuery> {
 

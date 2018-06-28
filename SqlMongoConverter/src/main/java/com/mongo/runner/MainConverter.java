@@ -3,9 +3,11 @@ package com.mongo.runner;
 import com.mongo.converter.DeleteQueryConverter;
 import com.mongo.converter.InsertQueryConverter;
 import com.mongo.converter.SelectQueryConverter;
+import com.mongo.converter.UpdateQueryConverter;
 import com.mongo.sql.query.DeleteSqlQuery;
 import com.mongo.sql.query.InsertSqlQuery;
 import com.mongo.sql.query.SelectSqlQuery;
+import com.mongo.sql.query.UpdateSqlQuery;
 
 public class MainConverter {
 
@@ -53,7 +55,12 @@ public class MainConverter {
         System.out.println("______________________________________________");
 
         String u1 = "UPDATE identityActions SET uid=XYZ WHERE uid=122323";
-        String u2 = "UPDATE identityActions SET uid=XYZ, email = abc@abc WHERE uid=122323";
+        String u2 = "UPDATE identityActions SET uid=XYZ, email=abc@abc WHERE uid=122323";
+        String u3 = "UPDATE identityActions SET uid=XYZ";
 
+        UpdateQueryConverter updateQueryConverter = new UpdateQueryConverter();
+        System.out.println(updateQueryConverter.getMongoQuery(new UpdateSqlQuery(u1)));
+        System.out.println(updateQueryConverter.getMongoQuery(new UpdateSqlQuery(u2)));
+        System.out.println(updateQueryConverter.getMongoQuery(new UpdateSqlQuery(u3)));
     }
 }

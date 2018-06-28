@@ -5,6 +5,7 @@ import com.mongo.mongo.query.OneColAndData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class CustomStringUtil {
@@ -24,6 +25,14 @@ public class CustomStringUtil {
             throw new RuntimeException("Data Column & Values are mismatched.");
         }
         return oneColAndDatas;
+    }
+
+    public static String getStringFromList(List<OneColAndData> list) {
+        StringJoiner stringJoiner = new StringJoiner(",");
+        for (OneColAndData oneColAndData : list) {
+            stringJoiner.add(oneColAndData.toString());
+        }
+        return stringJoiner.toString();
     }
 
 }

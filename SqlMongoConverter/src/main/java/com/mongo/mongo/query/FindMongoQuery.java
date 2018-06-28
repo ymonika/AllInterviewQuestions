@@ -1,5 +1,7 @@
 package com.mongo.mongo.query;
 
+import com.mongo.util.CustomStringUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
@@ -39,10 +41,10 @@ public class FindMongoQuery implements MongoQuery {
         StringJoiner outerStringJoiner = new StringJoiner(",");
         String whereClausedata = "";
 
-        String selectClauseData = "{" + getStringFromList(selectClause) + "}";
+        String selectClauseData = "{" + CustomStringUtil.getStringFromList(selectClause) + "}";
 
         if (this.whereClause.size() != 0) {
-            whereClausedata = "{" + getStringFromList(whereClause) + "}";
+            whereClausedata = "{" + CustomStringUtil.getStringFromList(whereClause) + "}";
             outerStringJoiner.add(whereClausedata);
         }
         outerStringJoiner.add(selectClauseData);
@@ -50,11 +52,4 @@ public class FindMongoQuery implements MongoQuery {
         return "db." + tableName + ".find(" + outerStringJoiner.toString() + ")";
     }
 
-    private String getStringFromList(List<OneColAndData> list) {
-        StringJoiner stringJoiner = new StringJoiner(",");
-        for (OneColAndData oneColAndData : list) {
-            stringJoiner.add(oneColAndData.toString());
-        }
-        return stringJoiner.toString();
-    }
 }

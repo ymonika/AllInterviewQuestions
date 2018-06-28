@@ -10,4 +10,5 @@ public interface Constant {
     String FROM = "FROM";
     String WHERE = "WHERE";
     String AND = "AND";
+    String SET = "SET";
 }

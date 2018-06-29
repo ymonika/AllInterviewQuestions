@@ -3,12 +3,10 @@ package com.mongo.converter;
 import com.mongo.mongo.query.FindMongoQuery;
 import com.mongo.mongo.query.OneColAndData;
 import com.mongo.sql.query.SelectSqlQuery;
-import com.mongo.util.Constant;
 import com.mongo.util.CustomStringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 public class SelectQueryConverter implements QueryConverter<SelectSqlQuery> {
 

@@ -12,7 +12,7 @@ public class InsertQueryConverter implements QueryConverter<InsertSqlQuery> {
 
 
     @Override
-    public MongoQuery getMongoQuery(InsertSqlQuery insertSqlQuery) {
+    public MongoQuery covertToMongoQuery(InsertSqlQuery insertSqlQuery) {
         InsertMongoQuery insertMongoQuery = new InsertMongoQuery();
 
         insertMongoQuery.setTableName(insertSqlQuery.getTableName());

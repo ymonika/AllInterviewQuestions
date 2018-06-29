@@ -12,8 +12,8 @@ import java.util.StringJoiner;
 
 public class SelectQueryConverter implements QueryConverter<SelectSqlQuery> {
 
-
-    public FindMongoQuery getMongoQuery(SelectSqlQuery selectSqlQuery) {
+    @Override
+    public FindMongoQuery covertToMongoQuery(SelectSqlQuery selectSqlQuery) {
 
         FindMongoQuery findMongoQuery = new FindMongoQuery();
         findMongoQuery.setTableName(selectSqlQuery.getTableName());

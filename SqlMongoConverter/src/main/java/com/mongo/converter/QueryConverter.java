@@ -1,8 +1,9 @@
 package com.mongo.converter;
 
 import com.mongo.mongo.query.MongoQuery;
+import com.mongo.sql.query.SqlQuery;
 
-public interface QueryConverter<T> {
+public interface QueryConverter<T extends SqlQuery> {
 
-    MongoQuery getMongoQuery(T t);
+    MongoQuery covertToMongoQuery(T t);
 }

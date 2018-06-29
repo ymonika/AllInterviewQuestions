@@ -7,7 +7,7 @@ import com.mongo.util.CustomStringUtil;
 public class DeleteQueryConverter implements QueryConverter<DeleteSqlQuery> {
 
     @Override
-    public DeleteMongoQuery getMongoQuery(DeleteSqlQuery deleteSqlQuery) {
+    public DeleteMongoQuery covertToMongoQuery(DeleteSqlQuery deleteSqlQuery) {
 
         DeleteMongoQuery deleteMongoQuery = new DeleteMongoQuery();
         deleteMongoQuery.setTableName(deleteSqlQuery.getTableName());

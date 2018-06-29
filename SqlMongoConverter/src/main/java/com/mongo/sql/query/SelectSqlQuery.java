@@ -15,8 +15,8 @@ public class SelectSqlQuery extends SqlQuery {
 
 
     public SelectSqlQuery(String sqlQ) {
-        int selectIndex = sqlQ.indexOf("SELECT") + 6;
-        int fromIndex = sqlQ.indexOf("FROM");
+        int selectIndex = sqlQ.indexOf(Constant.SELECT) + 6;
+        int fromIndex = sqlQ.indexOf(Constant.FROM);
         int whereIndexOrLastIndex = sqlQ.contains(Constant.WHERE) ? sqlQ.indexOf(Constant.WHERE): sqlQ.length();
         this.setTableName(sqlQ.substring(fromIndex + 4, whereIndexOrLastIndex).trim());
         setListForSelect(sqlQ.substring(selectIndex, fromIndex).trim());

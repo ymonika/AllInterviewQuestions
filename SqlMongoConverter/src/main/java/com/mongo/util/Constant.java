@@ -2,6 +2,7 @@ package com.mongo.util;
 
 public interface Constant {
 
+    String SELECT = "SELECT";
     String STAR = "*";
     String CURLY_ = "{}";
     String INSERT = "INSERT";

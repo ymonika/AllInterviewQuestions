@@ -7,7 +7,7 @@ import com.mongo.util.CustomStringUtil;
 public class UpdateQueryConverter implements QueryConverter<UpdateSqlQuery> {
 
     @Override
-    public UpdateMongoQuery getMongoQuery(UpdateSqlQuery updateSqlQuery) {
+    public UpdateMongoQuery covertToMongoQuery(UpdateSqlQuery updateSqlQuery) {
 
         UpdateMongoQuery updateMongoQuery = new UpdateMongoQuery();
         updateMongoQuery.setDatabase(updateSqlQuery.getTableName());

@@ -1,5 +1,0 @@
-UPDATE identityActions SET uid=XYZ
-SELECT * FROM identityActions
-INSERT INTO identityActions(uid,lastAccessedTimestampUtc) VALUES (122323, 2014-12-12)
-DELETE FROM identityActions WHERE uid=122323
-SELECT lastLoginTimestampUtc, uid, lastAccessedTimestampUtc FROM identityActions

@@ -20,6 +20,6 @@ public class CalculateVehicleFair {
         System.out.println(RateCalculator.calculateTotalExpenses(suv,7,Arrays.asList(100,150)));
 
         Bus bus = new Bus(true, Distance.calculateDistance(Distance.BANGLORE,Distance.MUMBAI).intValue());
-       // System.out.println(RateCalculator.calculateTotalExpenses(bus,45, Arrays.asList(100,150) ));
+        System.out.println(RateCalculator.calculateTotalExpenses(bus,45, Arrays.asList(100,150) ));
     }
 }

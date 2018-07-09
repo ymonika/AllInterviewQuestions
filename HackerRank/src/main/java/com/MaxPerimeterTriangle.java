@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /*
 Given an array of stick lengths, use  of them to construct a non-degenerate triange
-with the maximum possible perimeter. Print the lengths of its sides as  space-separated integers in non-decreasing order.
+with the maximum possible perimeter. Print the lengths of its sides as space-separated integers in non-decreasing order.
 
 If there are several valid triangles having the maximum perimeter:
 

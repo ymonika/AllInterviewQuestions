@@ -13,5 +13,13 @@ Each light in this row stands for 5 elapsed minutes.
 The 3 red lights have been assigned to mark the quarters of an hour and are intended to make reading the clock easier.
 Last of all, the yellow row at the very bottom displays units of single minutes.
 
+###### 2. HackerRank: Some practice programs from HackerRank
+* MaxPerimeterTriangle:
+   From the given input find out such a triangle whoes Perimeter is maximum.
+* GridChallenge:
+   Rearrange elements of each row alphabetically, ascending.
+   Determine if the columns are also in ascending alphabetical order,
+   top to bottom. Return YES if they are or NO if they are not.
 
-
+###### 3. VehicleRental:
+Find out Vehicle Fair for Bus, Car, SUV.

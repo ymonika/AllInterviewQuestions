@@ -1,7 +1,7 @@
 # AllInterviewQuestions
 
 ###### 1. BerlineClock:
-![picture](https://en.wikipedia.org/wiki/Mengenlehreuhr#/media/File:Berlin-Uhr-1650-1705.gif)
+![Berlin clock](http://www.eikeland.se/other/berlinclockui.png)
 
 The time of day is displayed in a 24-hour format and can be determined by simply adding and multiplying the glowing lights.
 

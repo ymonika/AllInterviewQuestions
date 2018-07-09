@@ -1,4 +1,4 @@
 rootProject.name='AllInterviewQuestions'
 
 include 'Threading', 'HackerRank', 'ParkingLotExample','VuClip-ApiVersionExample' ,
-        'SalesTaxExample'
+        'SalesTaxExample', 'VehicleRental', 'BerlinClock'

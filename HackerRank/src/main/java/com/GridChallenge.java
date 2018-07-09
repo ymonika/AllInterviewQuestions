@@ -9,19 +9,37 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /*
-https://www.hackerrank.com/challenges/grid-challenge/problem
+Given a square grid of characters in the range ascii[a-z], rearrange elements of each row alphabetically, ascending.
+Determine if the columns are also in ascending alphabetical order,
+top to bottom. Return YES if they are or NO if they are not.
+
+For example, given:
+a b c
+a d e
+e f g
+
+The rows are already in alphabetical order. The columns a a e, b d f and c e g are also in alphabetical order,
+so the answer would be YES. Only elements within the same row can be rearranged. They cannot be moved to a different row.
+
 INPUT:
-1
-5
 ebacd
 fghij
 olmkn
 trpqs
 xywuv
+
 OUTPUT:
 YES
 
- */
+INPUT:
+kc
+iu
+
+OUTPUT:
+YES
+
+*/
+
 public class GridChallenge {
 
     static String gridChallenge(String[] grid) {
@@ -60,44 +78,10 @@ public class GridChallenge {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-        /*BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        int n = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-        int[] arr = new int[n];
-
-        String[] arrItems = scanner.nextLine().split(" ");
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-        for (int i = 0; i < n; i++) {
-            int arrItem = Integer.parseInt(arrItems[i]);
-            arr[i] = arrItem;
-        }
-
-        int result = minimumAbsoluteDifference(n, arr);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
-
-        scanner.close();*/
-        //minimumAbsoluteDifference(3, (Integer[]) Arrays.asList(3,-7,0).toArray());
-
-        //System.out.println(gridChallenge((String[]) Arrays.asList("abcde", "fghij", "klmno", "pqrst", "uvwxy").toArray()));
+        System.out.println(gridChallenge((String[]) Arrays.asList("abcde", "fghij", "klmno", "pqrst", "uvwxy").toArray()));
         System.out.println(gridChallenge((String[]) Arrays.asList("kc", "iu").toArray()));
         System.out.println(gridChallenge((String[]) Arrays.asList("uxf", "vof", "hmp").toArray()));
-        /*
-        2
-2
-kc
-iu
-3
-uxf
-vof
-hmp
-         */
+
     }
 
 

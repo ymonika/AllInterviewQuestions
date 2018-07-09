@@ -5,7 +5,16 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /*
-https://www.hackerrank.com/challenges/maximum-perimeter-triangle/problem
+Given an array of stick lengths, use  of them to construct a non-degenerate triange
+with the maximum possible perimeter. Print the lengths of its sides as  space-separated integers in non-decreasing order.
+
+If there are several valid triangles having the maximum perimeter:
+
+Choose the one with the longest maximum side.
+If more than one has that maximum, choose from them the one with the longest minimum side.
+If more than one has that maximum as well, print any one them.
+If no non-degenerate triangle exists, print -1.
+
 Sample Input 0
 5
 1 1 1 3 3

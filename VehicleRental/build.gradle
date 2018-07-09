@@ -1,4 +1,4 @@
-group 'VehicleRental'
+group 'VuClip-ApiVersionExample'
 
 apply plugin: 'java'
 

@@ -23,3 +23,5 @@ Last of all, the yellow row at the very bottom displays units of single minutes.
 
 ###### 3. VehicleRental:
 Find out Vehicle Fair for Bus, Car, SUV.
+
+###### 4. VendingMachine & CoffeeMachine: /* TO Do */
